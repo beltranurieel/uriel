@@ -1,0 +1,1804 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uriel | Diseñador Web Freelance en Argentina</title>
+  <meta name="description" content="Diseño páginas web simples, rápidas y a medida para negocios y profesionales de todo tipo. Pago único, sin abonos mensuales. 100% optimizadas para celular.">
+  <meta name="keywords" content="diseñador web freelance, páginas web argentina, diseño web uriel, landing page, diseño web profesional">
+  <meta name="author" content="Uriel Beltrán">
+
+  <!-- Open Graph / Meta Compartir -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Uriel | Diseñador Web Freelance en Argentina">
+  <meta property="og:description" content="Tu negocio, con la web que se merece. Diseño páginas web simples, rápidas y a medida. Pago único, sin abonos mensuales.">
+  <meta property="og:image" content="./img/avatar-laptop.png">
+  
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Uriel | Diseñador Web Freelance en Argentina">
+  <meta name="twitter:description" content="Diseño páginas web simples, rápidas y a medida para negocios y profesionales.">
+  <meta name="twitter:image" content="./img/avatar-laptop.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="./img/favicon.png">
+  <link rel="apple-touch-icon" href="./img/favicon.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans & Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       VARIABLES Y RESET
+       ========================================================================== */
+    :root {
+      --bg-dark: #05070e;
+      --bg-darker: #020408;
+      --bg-card: rgba(14, 21, 37, 0.65);
+      --bg-card-hover: rgba(22, 33, 58, 0.85);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --border-card-hover: rgba(59, 130, 246, 0.4);
+      --border-card-active: rgba(96, 165, 250, 0.6);
+      
+      --blue-primary: #2563eb;
+      --blue-vivid: #3b82f6;
+      --blue-light: #60a5fa;
+      --blue-glow: rgba(37, 99, 235, 0.45);
+      --blue-glow-subtle: rgba(37, 99, 235, 0.18);
+      
+      --white: #ffffff;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --radius-xl: 30px;
+      --radius-full: 9999px;
+      
+      --container-max: 1140px;
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      overflow-x: hidden;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    /* Luces radiales de fondo inspiradas en la referencia */
+    .ambient-glow {
+      position: absolute;
+      pointer-events: none;
+      z-index: 0;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.55;
+    }
+
+    .glow-hero {
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 750px;
+      height: 480px;
+      background: radial-gradient(ellipse at center, rgba(37, 99, 235, 0.3) 0%, rgba(59, 130, 246, 0.12) 45%, transparent 70%);
+    }
+
+    .glow-middle {
+      top: 38%;
+      left: -150px;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, transparent 70%);
+    }
+
+    .glow-contact {
+      bottom: 100px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, rgba(37, 99, 235, 0.08) 50%, transparent 75%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--container-max);
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 24px;
+      padding-right: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==========================================================================
+       HEADER & NAVEGACIÓN FLOTANTE (ESTILO FRAMER PILL)
+       ========================================================================== */
+    .header-nav {
+      position: fixed;
+      top: 18px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+      transition: var(--transition-smooth);
+    }
+
+    .nav-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      background: rgba(10, 15, 28, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-full);
+      padding: 8px 10px 8px 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.2) inset;
+      transition: var(--transition-smooth);
+      max-width: 820px;
+      width: 100%;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+    }
+
+    .nav-logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 12px var(--blue-glow);
+      overflow: hidden;
+    }
+
+    .nav-logo-badge img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: var(--transition-smooth);
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--white);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--blue-vivid);
+      transition: width 0.25s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .nav-cta-btn {
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-vivid));
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 9px 18px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 2px 14px var(--blue-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      white-space: nowrap;
+    }
+
+    .nav-cta-btn:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, 0.6);
+      filter: brightness(1.1);
+    }
+
+    /* Botón Hamburguesa Mobile */
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 8px;
+    }
+
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 16px;
+      right: 16px;
+      background: rgba(10, 16, 32, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      z-index: 99;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .mobile-nav-overlay.open {
+      display: flex;
+      animation: mobileFadeIn 0.25s ease-out forwards;
+    }
+
+    @keyframes mobileFadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .mobile-nav-overlay a {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .mobile-nav-overlay a:hover {
+      color: var(--white);
+    }
+
+    /* ==========================================================================
+       HERO SECTION
+       ========================================================================== */
+    .hero-section {
+      padding-top: 150px;
+      padding-bottom: 90px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-br-mobile {
+      display: none;
+    }
+
+    .hero-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: rgba(37, 99, 235, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.28);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--blue-light);
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #22c55e;
+      box-shadow: 0 0 10px #22c55e;
+      position: relative;
+    }
+
+    .status-dot::after {
+      content: '';
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1.5px solid #22c55e;
+      animation: pulseDot 2s infinite;
+    }
+
+    @keyframes pulseDot {
+      0% { transform: scale(0.8); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.035em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero-title .serif-accent {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--blue-light);
+      display: inline;
+      margin-right: -2px;
+      text-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1.05rem, 1.4vw, 1.22rem);
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-weight: 400;
+      margin-bottom: 34px;
+      max-width: 580px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-vivid));
+      color: var(--white);
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 30px;
+      border-radius: var(--radius-full);
+      box-shadow: 0 4px 25px var(--blue-glow);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 32px rgba(37, 99, 235, 0.6);
+      filter: brightness(1.1);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.98rem;
+      padding: 15px 26px;
+      border-radius: var(--radius-full);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* Avatar Hero */
+    .hero-avatar-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar-halo {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, rgba(59, 130, 246, 0.1) 50%, transparent 70%);
+      filter: blur(40px);
+      z-index: 0;
+      animation: pulseHalo 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseHalo {
+      0% { transform: scale(0.9); opacity: 0.6; }
+      100% { transform: scale(1.15); opacity: 0.95; }
+    }
+
+    .avatar-float {
+      animation: avatarFloat 4s ease-in-out infinite;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.65));
+    }
+
+    @keyframes avatarFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .avatar-badge-tag {
+      position: absolute;
+      bottom: 25px;
+      left: 10px;
+      background: rgba(14, 21, 37, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(14px);
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      z-index: 2;
+      animation: avatarFloat 4s ease-in-out infinite 0.5s;
+    }
+
+    .avatar-badge-tag span {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--white);
+    }
+
+    /* ==========================================================================
+       SECCIÓN SOBRE MÍ
+       ========================================================================== */
+    .section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--blue-vivid);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .section-title .serif-accent {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: normal;
+      color: var(--blue-light);
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 640px;
+      margin-bottom: 48px;
+    }
+
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 56px 48px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition-smooth);
+    }
+
+    .about-card:hover {
+      border-color: var(--border-card-hover);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 35px var(--blue-glow-subtle);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.25fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .about-avatar-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .about-avatar-img {
+      max-width: 340px;
+      width: 100%;
+      filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+      animation: avatarFloat 4.5s ease-in-out infinite;
+    }
+
+    .about-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .about-quote {
+      font-size: clamp(1.15rem, 1.8vw, 1.35rem);
+      color: var(--text-main);
+      font-weight: 500;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .about-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .about-highlight-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .about-highlight-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .about-highlight-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .about-highlight-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       SECCIÓN CÓMO TRABAJO (4 PASOS NUMERADOS)
+       ========================================================================== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 34px 26px;
+      backdrop-filter: blur(14px);
+      transition: var(--transition-smooth);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-card-hover);
+      background: var(--bg-card-hover);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4), 0 0 20px var(--blue-glow-subtle);
+    }
+
+    .step-number-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.25), rgba(59, 130, 246, 0.1));
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: var(--blue-light);
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin-bottom: 22px;
+      box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+    }
+
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .step-text {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       SECCIÓN POR QUÉ CONMIGO (5 TARJETAS CON EMOJIS APPLE LOOK)
+       ========================================================================== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 34px 28px;
+      backdrop-filter: blur(14px);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--border-card-hover);
+      background: var(--bg-card-hover);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 25px var(--blue-glow-subtle);
+    }
+
+    .feature-card:nth-child(4), .feature-card:nth-child(5) {
+      grid-column: span 1;
+    }
+
+    .feature-emoji {
+      font-size: 2.2rem;
+      line-height: 1;
+      margin-bottom: 4px;
+      display: inline-block;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    }
+
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .feature-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ==========================================================================
+       SECCIÓN PROYECTOS (2 TARJETAS DESTACADAS CON MOCKUPS DUALES)
+       ========================================================================== */
+    .projects-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-card-hover);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 35px var(--blue-glow-subtle);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .project-card:nth-child(even) .project-grid {
+      grid-template-columns: 1.25fr 1fr;
+    }
+
+    .project-card:nth-child(even) .project-info {
+      order: 2;
+    }
+
+    .project-card:nth-child(even) .project-visuals {
+      order: 1;
+    }
+
+    .project-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(37, 99, 235, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      color: var(--blue-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .project-name {
+      font-size: clamp(1.8rem, 2.6vw, 2.2rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.025em;
+      margin-bottom: 14px;
+    }
+
+    .project-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .btn-project {
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-vivid));
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 12px 24px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 18px var(--blue-glow);
+    }
+
+    .btn-project:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.6);
+      filter: brightness(1.1);
+    }
+
+    /* Mockups Visuales Duales (Desktop + Mobile) */
+    .project-visuals {
+      position: relative;
+      width: 100%;
+      min-height: 380px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mockup-desktop {
+      width: 82%;
+      border-radius: var(--radius-md);
+      background: #111827;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+      transform: translateX(-5%);
+      transition: var(--transition-smooth);
+    }
+
+    .mockup-bar {
+      height: 26px;
+      background: #1e293b;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .mockup-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+    .mockup-dot.red { background-color: #ef4444; }
+    .mockup-dot.yellow { background-color: #eab308; }
+    .mockup-dot.green { background-color: #22c55e; }
+
+    .mockup-desktop img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .mockup-mobile {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 32%;
+      max-width: 160px;
+      border-radius: var(--radius-lg);
+      background: #0f172a;
+      border: 3px solid #334155;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+      overflow: hidden;
+      z-index: 2;
+      transition: var(--transition-smooth);
+    }
+
+    .mockup-mobile img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-card:hover .mockup-desktop {
+      transform: translateX(-7%) scale(1.02);
+    }
+
+    .project-card:hover .mockup-mobile {
+      transform: translateY(-8px) scale(1.04);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 20px var(--blue-glow);
+    }
+
+    /* ==========================================================================
+       SECCIÓN SERVICIOS (TARJETAS MODERNAS CON EMOJIS APPLE)
+       ========================================================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      text-align: center;
+      backdrop-filter: blur(14px);
+      transition: var(--transition-smooth);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-card-hover);
+      background: var(--bg-card-hover);
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.4), 0 0 22px var(--blue-glow-subtle);
+    }
+
+    .service-emoji {
+      font-size: 2.2rem;
+      line-height: 1;
+      display: inline-block;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
+    }
+
+    .service-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.35;
+    }
+
+    /* ==========================================================================
+       SECCIÓN CONTACTO
+       ========================================================================== */
+    .contact-card {
+      background: linear-gradient(180deg, rgba(14, 21, 37, 0.75) 0%, rgba(8, 13, 24, 0.85) 100%);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      padding: 64px 48px;
+      backdrop-filter: blur(20px);
+      text-align: center;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6), 0 0 1px rgba(255, 255, 255, 0.1) inset;
+      position: relative;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-card:hover {
+      border-color: var(--border-card-hover);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.7), 0 0 40px var(--blue-glow-subtle);
+    }
+
+    .contact-avatar-box {
+      margin-bottom: 24px;
+      display: inline-block;
+      position: relative;
+    }
+
+    .contact-avatar-img {
+      max-width: 240px;
+      width: 100%;
+      filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+      animation: avatarFloat 4.2s ease-in-out infinite;
+    }
+
+    .contact-heading {
+      font-size: clamp(2rem, 3.8vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .contact-location {
+      font-size: 1.15rem;
+      color: var(--blue-light);
+      font-weight: 600;
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .contact-buttons-group {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 38px;
+    }
+
+    .btn-contact-action {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.98rem;
+      padding: 13px 26px;
+      border-radius: var(--radius-full);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      transition: var(--transition-smooth);
+    }
+
+    .btn-contact-action:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-contact-action.primary-wa {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 20px var(--blue-glow);
+    }
+
+    .btn-contact-action.primary-wa:hover {
+      box-shadow: 0 6px 26px rgba(37, 99, 235, 0.65);
+      filter: brightness(1.1);
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      list-style: none;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .contact-info-item strong {
+      color: var(--white);
+    }
+
+    .contact-info-item a:hover {
+      color: var(--blue-light);
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       FOOTER
+       ========================================================================== */
+    .site-footer {
+      padding: 40px 0 60px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+    }
+
+    /* ==========================================================================
+       BOTÓN FLOTANTE WHATSAPP
+       ========================================================================== */
+    .floating-whatsapp {
+      position: fixed;
+      bottom: 26px;
+      right: 26px;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25D366;
+      color: #ffffff;
+      padding: 13px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 0.94rem;
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.4), 0 0 1px rgba(255, 255, 255, 0.4) inset;
+      transition: var(--transition-smooth);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .floating-whatsapp:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 14px 35px rgba(37, 211, 102, 0.6);
+      filter: brightness(1.05);
+    }
+
+    .floating-whatsapp-icon {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* ==========================================================================
+       ANIMACIONES DE SCROLL (REVEAL)
+       ========================================================================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MOBILE FIRST ACCORDING TO SPECS)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .feature-card:nth-child(5) {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links, .nav-cta-btn {
+        display: none;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 36px;
+      }
+      .hero-br-mobile {
+        display: inline;
+      }
+
+    .hero-status-pill {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-cta-group {
+        justify-content: center;
+      }
+      .hero-avatar-wrapper {
+        order: 2;
+        margin-top: 10px;
+      }
+      .avatar-float {
+        max-width: 310px;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 32px;
+      }
+      .about-highlights {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+      .project-grid, .project-card:nth-child(even) .project-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .project-card:nth-child(even) .project-info {
+        order: 1;
+      }
+      .project-card:nth-child(even) .project-visuals {
+        order: 2;
+      }
+      .mockup-desktop {
+        width: 100%;
+        transform: none !important;
+      }
+      .mockup-mobile {
+        width: 38%;
+        max-width: 140px;
+        right: -10px;
+        bottom: -15px;
+      }
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .service-card:nth-child(5) {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 60px 0;
+      }
+      .hero-section {
+        padding-top: 100px;
+        padding-bottom: 50px;
+      }
+      .hero-title {
+        font-size: 1.85rem;
+        line-height: 1.22;
+        letter-spacing: -0.025em;
+        margin-bottom: 16px;
+      }
+      .hero-subtitle {
+        font-size: 0.98rem;
+        line-height: 1.6;
+        margin-bottom: 26px;
+      }
+      .hero-br-mobile {
+        display: inline;
+      }
+
+    .hero-status-pill {
+        font-size: 0.76rem;
+        padding: 5px 12px;
+        margin-bottom: 18px;
+      }
+      .hero-cta-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+      }
+      .hero-cta-group .btn-primary,
+      .hero-cta-group .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+      .avatar-float {
+        max-width: 270px;
+      }
+      .about-card, .project-card, .contact-card {
+        padding: 28px 18px;
+        border-radius: var(--radius-lg);
+      }
+      .steps-grid, .features-grid, .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+      .feature-card:nth-child(5), .service-card:nth-child(5) {
+        grid-column: span 1;
+      }
+      .contact-buttons-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      .contact-buttons-group .btn-contact-action {
+        width: 100%;
+        justify-content: center;
+      }
+      .contact-info-list {
+        flex-direction: column;
+        gap: 14px;
+        align-items: center;
+      }
+      .floating-whatsapp span {
+        display: none;
+      }
+      .floating-whatsapp {
+        padding: 14px;
+        border-radius: 50%;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+        border-radius: 50%;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Luces ambientales de fondo estilo aurora negra y azul -->
+  <div class="ambient-glow glow-hero"></div>
+  <div class="ambient-glow glow-middle"></div>
+  <div class="ambient-glow glow-contact"></div>
+
+  <!-- ========================================================================
+       BARRA DE NAVEGACIÓN FLOTANTE (ESTILO ISLAND PILL)
+       ======================================================================== -->
+  <header class="header-nav">
+    <nav class="nav-pill">
+      <a href="#" class="nav-logo" aria-label="Inicio Uriel Beltrán">
+        <div class="nav-logo-badge">
+          <img src="./img/favicon.png" alt="Uriel Avatar Favicon" width="32" height="32">
+        </div>
+        <span>Uriel</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#sobre-mi" class="nav-link">Sobre mí</a></li>
+        <li><a href="#como-trabajo" class="nav-link">Cómo trabajo</a></li>
+        <li><a href="#por-que-conmigo" class="nav-link">Por qué conmigo</a></li>
+        <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+        <li><a href="#servicios" class="nav-link">Servicios</a></li>
+        <li><a href="#contacto" class="nav-link">Contacto</a></li>
+      </ul>
+
+      <a href="https://wa.me/5491157373886" target="_blank" rel="noopener noreferrer" class="nav-cta-btn">
+        <span>Escribime</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú de navegación">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Menú desplegable para móviles -->
+  <div class="mobile-nav-overlay" id="mobileNavOverlay">
+    <a href="#sobre-mi" class="mobile-nav-link">Sobre mí</a>
+    <a href="#como-trabajo" class="mobile-nav-link">Cómo trabajo</a>
+    <a href="#por-que-conmigo" class="mobile-nav-link">Por qué conmigo</a>
+    <a href="#proyectos" class="mobile-nav-link">Proyectos</a>
+    <a href="#servicios" class="mobile-nav-link">Servicios</a>
+    <a href="#contacto" class="mobile-nav-link">Contacto</a>
+    <a href="https://wa.me/5491157373886" target="_blank" rel="noopener noreferrer" class="btn-primary" style="justify-content: center; margin-top: 10px;">
+      Escribime por WhatsApp
+    </a>
+  </div>
+
+  <main>
+    <!-- ======================================================================
+         HERO SECTION
+         ====================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-content reveal">
+            <div class="hero-status-pill">
+              <span class="status-dot"></span>
+              <span>Disponible para nuevos proyectos · Argentina</span>
+            </div>
+
+            <h1 class="hero-title">
+              Tu negocio,<br class="hero-br-mobile"> con la web<br class="hero-br-mobile"> que se <span class="serif-accent">merece</span>.
+            </h1>
+
+            <p class="hero-subtitle">
+              Diseño páginas web simples, rápidas y a medida para negocios y profesionales de todo tipo. Pago único, sin abonos mensuales.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="https://wa.me/5491157373886" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                <span>Escribime por WhatsApp</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+              <a href="#proyectos" class="btn-secondary">
+                <span>Ver proyectos</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-avatar-wrapper reveal">
+            <div class="avatar-halo"></div>
+            <img src="./img/avatar-waving.png" alt="Uriel diseñador web saludando amigablemente" class="avatar-float" width="512" height="512">
+            <div class="avatar-badge-tag">
+              <span>👋 ¡Hola! Soy Uriel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN SOBRE MÍ
+         ====================================================================== -->
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <div class="reveal" style="text-align: center; margin-bottom: 40px;">
+          <span class="section-eyebrow">Conoceme</span>
+          <h2 class="section-title">Sobre <span class="serif-accent">mí</span></h2>
+        </div>
+
+        <div class="about-card reveal">
+          <div class="about-grid">
+            <div class="about-avatar-box">
+              <img src="./img/avatar-laptop.png" alt="Uriel trabajando con su laptop en diseño web" class="about-avatar-img" width="512" height="512">
+            </div>
+
+            <div class="about-content">
+              <p class="about-quote">
+                Soy Uriel, diseñador web freelance en Argentina. Ayudo a negocios y profesionales a tener una presencia online clara, prolija y lista para convertir visitas en consultas. Me ocupo de todo: diseño, desarrollo y comunicación. Hablás directo conmigo, de principio a fin.
+              </p>
+
+              <div class="about-highlights">
+                <div class="about-highlight-item">
+                  <span class="about-highlight-icon">🎯</span>
+                  <div>
+                    <h3 class="about-highlight-title">Trato directo 1 a 1</h3>
+                    <p class="about-highlight-desc">Sin intermediarios ni agencias lentas.</p>
+                  </div>
+                </div>
+
+                <div class="about-highlight-item">
+                  <span class="about-highlight-icon">🚀</span>
+                  <div>
+                    <h3 class="about-highlight-title">Listo para convertir</h3>
+                    <p class="about-highlight-desc">Estructuras pensadas para generar consultas.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN CÓMO TRABAJO
+         ====================================================================== -->
+    <section class="section" id="como-trabajo">
+      <div class="container">
+        <div class="reveal" style="text-align: center; margin-bottom: 50px;">
+          <span class="section-eyebrow">Metodología ágil</span>
+          <h2 class="section-title">Cómo <span class="serif-accent">trabajo</span></h2>
+          <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+            Un proceso simple, transparente y sin vueltas para tener tu web lista en poco tiempo.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card reveal">
+            <div class="step-number-badge">01</div>
+            <h3 class="step-title">Charlamos</h3>
+            <p class="step-text">me contás qué hacés y qué querés mostrar.</p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number-badge">02</div>
+            <h3 class="step-title">Diseño</h3>
+            <p class="step-text">armo tu web con tu estilo, tus fotos y tus servicios.</p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number-badge">03</div>
+            <h3 class="step-title">Ajustes</h3>
+            <p class="step-text">la revisamos juntos hasta que quede como querés.</p>
+          </div>
+
+          <div class="step-card reveal">
+            <div class="step-number-badge">04</div>
+            <h3 class="step-title">Publicación</h3>
+            <p class="step-text">queda online, lista para compartir en tus redes y WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN POR QUÉ CONMIGO
+         ====================================================================== -->
+    <section class="section" id="por-que-conmigo">
+      <div class="container">
+        <div class="reveal" style="text-align: center; margin-bottom: 50px;">
+          <span class="section-eyebrow">Diferenciales</span>
+          <h2 class="section-title">Por qué <span class="serif-accent">conmigo</span></h2>
+          <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+            Beneficios concretos pensados para potenciar tu presencia digital sin complicaciones.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card reveal">
+            <span class="feature-emoji">💸</span>
+            <h3 class="feature-title">Pago único</h3>
+            <p class="feature-text">sin abonos ni costos recurrentes.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <span class="feature-emoji">📱</span>
+            <h3 class="feature-title">Optimizada para celular</h3>
+            <p class="feature-text">la mayoría de tus clientes te va a ver desde el teléfono.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <span class="feature-emoji">💬</span>
+            <h3 class="feature-title">Botón de WhatsApp</h3>
+            <p class="feature-text">te escriben con un toque.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <span class="feature-emoji">⚡</span>
+            <h3 class="feature-title">Rápida y liviana</h3>
+            <p class="feature-text">carga al instante.</p>
+          </div>
+
+          <div class="feature-card reveal">
+            <span class="feature-emoji">🎨</span>
+            <h3 class="feature-title">Diseño a medida</h3>
+            <p class="feature-text">cada web se hace desde cero, sin plantillas genéricas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN PROYECTOS
+         ====================================================================== -->
+    <section class="section" id="proyectos">
+      <div class="container">
+        <div class="reveal" style="text-align: center; margin-bottom: 50px;">
+          <span class="section-eyebrow">Casos reales</span>
+          <h2 class="section-title">Trabajos <span class="serif-accent">recientes</span></h2>
+          <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+            Proyectos diseñados con foco en identidad, estética y conversión de consultas.
+          </p>
+        </div>
+
+        <div class="projects-stack">
+          <!-- Proyecto 1: Studio Sil Terron -->
+          <article class="project-card reveal">
+            <div class="project-grid">
+              <div class="project-info">
+                <span class="project-tag">✨ Cosmética & Estética Consciente</span>
+                <h3 class="project-name">Studio Sil Terron</h3>
+                <p class="project-desc">
+                  carta de servicios por niveles, estética oscura y animaciones.
+                </p>
+                <a href="https://silterronweb.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project">
+                  <span>Ver web</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+
+              <div class="project-visuals">
+                <div class="mockup-desktop">
+                  <div class="mockup-bar">
+                    <span class="mockup-dot red"></span>
+                    <span class="mockup-dot yellow"></span>
+                    <span class="mockup-dot green"></span>
+                  </div>
+                  <img src="./img/sil-terron-desktop.png" alt="Captura de escritorio del sitio web Studio Sil Terron" loading="lazy" width="1280" height="800">
+                </div>
+
+                <div class="mockup-mobile">
+                  <img src="./img/sil-terron-mobile.png" alt="Captura versión móvil del sitio web Studio Sil Terron" loading="lazy" width="390" height="800">
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Proyecto 2: Luz Ibáñez -->
+          <article class="project-card reveal">
+            <div class="project-grid">
+              <div class="project-info">
+                <span class="project-tag">🌿 Dermatocosmiatría Profesional</span>
+                <h3 class="project-name">Luz Ibáñez</h3>
+                <p class="project-desc">
+                  web profesional pensada para transmitir confianza.
+                </p>
+                <a href="https://dermatocosmiatramli.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project">
+                  <span>Ver web</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                </a>
+              </div>
+
+              <div class="project-visuals">
+                <div class="mockup-desktop">
+                  <div class="mockup-bar">
+                    <span class="mockup-dot red"></span>
+                    <span class="mockup-dot yellow"></span>
+                    <span class="mockup-dot green"></span>
+                  </div>
+                  <img src="./img/luz-desktop.png" alt="Captura de escritorio del sitio web Luz Ibáñez Dermatocosmiatra" loading="lazy" width="1280" height="800">
+                </div>
+
+                <div class="mockup-mobile">
+                  <img src="./img/luz-mobile.png" alt="Captura versión móvil del sitio web Luz Ibáñez Dermatocosmiatra" loading="lazy" width="390" height="800">
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN SERVICIOS
+         ====================================================================== -->
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="reveal" style="text-align: center; margin-bottom: 50px;">
+          <span class="section-eyebrow">Soluciones</span>
+          <h2 class="section-title">Qué <span class="serif-accent">ofrezco</span></h2>
+          <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+            Todo lo que tu negocio necesita para tener una web profesional y funcional.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="service-card reveal">
+            <span class="service-emoji">📄</span>
+            <h3 class="service-title">Webs de una página</h3>
+          </div>
+
+          <div class="service-card reveal">
+            <span class="service-emoji">🚀</span>
+            <h3 class="service-title">Landing pages</h3>
+          </div>
+
+          <div class="service-card reveal">
+            <span class="service-emoji">✨</span>
+            <h3 class="service-title">Rediseño de presencia online</h3>
+          </div>
+
+          <div class="service-card reveal">
+            <span class="service-emoji">💬</span>
+            <h3 class="service-title">Integración con WhatsApp</h3>
+          </div>
+
+          <div class="service-card reveal">
+            <span class="service-emoji">🌐</span>
+            <h3 class="service-title">Publicación y dominio</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECCIÓN CONTACTO
+         ====================================================================== -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="contact-avatar-box">
+            <img src="./img/avatar-waving.png" alt="Uriel listo para contactar" class="contact-avatar-img" width="512" height="512">
+          </div>
+
+          <h2 class="contact-heading">¿Charlamos de tu proyecto?</h2>
+          <p class="contact-location">
+            <span>🇦🇷</span> Trabajo con clientes de toda Argentina.
+          </p>
+
+          <div class="contact-buttons-group">
+            <a href="https://wa.me/5491157373886" target="_blank" rel="noopener noreferrer" class="btn-contact-action primary-wa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+
+            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="btn-contact-action">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span>Instagram</span>
+            </a>
+
+            <a href="mailto:beltranuriel333@gmail.com" class="btn-contact-action">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>Email</span>
+            </a>
+          </div>
+
+          <ul class="contact-info-list">
+            <li class="contact-info-item">
+              <strong>WhatsApp:</strong> <a href="https://wa.me/5491157373886" target="_blank" rel="noopener noreferrer">+54 9 11 5737-3886</a>
+            </li>
+            <li class="contact-info-item">
+              <strong>Email:</strong> <a href="mailto:beltranuriel333@gmail.com">beltranuriel333@gmail.com</a>
+            </li>
+            <li class="contact-info-item">
+              <strong>Instagram:</strong> <span>[USUARIO]</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Uriel · Diseñador Web Freelance. Diseñado y desarrollado a medida con HTML, CSS y JS vanilla.</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       BOTÓN FLOTANTE WHATSAPP (VISIBILIDAD GLOBAL)
+       ======================================================================== -->
+  <a href="https://wa.me/5491157373886" target="_blank" rel="noopener noreferrer" class="floating-whatsapp" aria-label="Escribime por WhatsApp">
+    <svg class="floating-whatsapp-icon" viewBox="0 0 24 24"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24z"/></svg>
+    <span>Escribime por WhatsApp</span>
+  </a>
+
+  <!-- ========================================================================
+       SCRIPTS VANILLA JS
+       ======================================================================== -->
+  <script>
+    // 1. Animaciones suaves con Intersection Observer
+    document.addEventListener('DOMContentLoaded', () => {
+      const reveals = document.querySelectorAll('.reveal');
+      
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.12,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      reveals.forEach(el => observer.observe(el));
+
+      // 2. Mobile Menu Toggler
+      const mobileBtn = document.getElementById('mobileMenuBtn');
+      const mobileOverlay = document.getElementById('mobileNavOverlay');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+      if (mobileBtn && mobileOverlay) {
+        mobileBtn.addEventListener('click', () => {
+          mobileOverlay.classList.toggle('open');
+        });
+
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileOverlay.classList.remove('open');
+          });
+        });
+      }
+
+      // 3. Resaltar enlace activo según la sección visible
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      window.addEventListener('scroll', () => {
+        let current = '';
+        const scrollPos = window.pageYOffset + 200;
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            current = section.getAttribute('id');
+          }
+        });
+
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+          }
+        });
+      }, { passive: true });
+    });
+  </script>
+</body>
+</html>
